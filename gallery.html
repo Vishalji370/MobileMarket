@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Gallery - Mobile Marketplace</title>
+    <meta name="description" content="Modern phone marketplace with filters, sorting, and detailed phone listings">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+   
+        <!-- Header -->
+     <header class="header" id="autoBgHeader" style="height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+  <!-- Transparent Nav -->
+<nav class="main-nav">
+  <div class="nav-left">
+    <div class="logo">
+      <!-- Apna logo yahaan -->
+      <span>MO</span> <span class="brand-name">Mobsy</span>
+    </div>
+  </div>
+
+  <ul class="nav-links" >
+    <li><a href="index.html" class="home-link">Home</a></li>
+       <li data-filter="All">
+         <li><a href="index.html" class="home-link">All</a>
+          <ul class="submenu">
+            <li><a href="#">Mobiles</a></li>
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </li>
+  <li><a href="index.html" class="home-link">User</a>
+    <ul class="submenu">
+            <li><a href="index.html">Buyer</a></li>
+            <li><a href="sellerfinal.html">Seller</a></li>
+          </ul>
+        </li>
+   <li><a href="index.html" class="home-link">Gallary</a></li>
+  </ul>
+
+  <div class="nav-right">
+       <a href="#"><i class="icon-user"></i></a>
+    <a href="about.html" class="admin-login-link">
+    <i class="icon-user"></i> About Us
+</a>
+    <a href="#"><i class="icon-user"></i></a>
+    <a href="login.html" class="admin-login-link">
+    <i class="icon-user"></i> Admin
+</a>
+<a href="#"><i class="icon-cart"></i></a>
+
+
+  <a href="cart.html" class="cart-icon">
+  🛒
+  <span class="cart-count">0</span>
+</a>
+</div>
+</nav>
+
+
+  <!-- Center Content -->
+  <div style="text-align:center; color:white; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <h1 style="font-size:60px; font-weight:bold; margin-top: 110px; margin-bottom:-30px; color: aqua; ">Mobsy Smartphones</h1>
+    <h1 style="font-size:60px; font-weight:bold; margin-bottom:10px;">Sell & Buy Premium Phones</h1>
+    <p style="font-size:20px; max-width:600px;">Your trusted platform for selling and buying top-quality refurbished smartphones</p>
+    <div class="search-wrap" style="margin-top:20px; width:60%; max-width:600px; max-height: 60px; height: 40px;">
+      <div class="search" id="search">
+        <input id="searchInput" placeholder="Search products, brands and more..." />
+        <button id="searchBtn" title="Search">🔍</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <!-- Filter & Sort Section -->
+        <div class="filter-section">
+            <div class="filter-card">
+                <div class="filter-header">
+                    <h3>Filter & Sort</h3>
+                    <button id="clearFilters" class="clear-btn" style="display: none;">Clear All</button>
+                </div>
+                
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label>Brand</label>
+                        <select id="brandFilter">
+                            <option value="">All Brands</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Condition</label>
+                        <select id="conditionFilter">
+                            <option value="">All Conditions</option>
+                            <option value="New">New</option>
+                            <option value="Like New">Like New</option>
+                            <option value="Used">Used</option>
+                            <option value="Refurbished">Refurbished</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Sort By</label>
+                        <select id="sortFilter">
+                            <option value="latest">Latest Added</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group price-range">
+                        <label>Price Range: ₹<span id="minPriceLabel">5000</span> - ₹<span id="maxPriceLabel">100000</span></label>
+                        <div class="price-slider-container">
+                            <input type="range" id="minPrice" min="5000" max="100000" value="5000" step="1000">
+                            <input type="range" id="maxPrice" min="5000" max="100000" value="100000" step="1000">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-count">
+                    <span id="resultsCount">0 phones found</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phone Grid -->
+        <div id="phoneGrid" class="phone-grid">
+            <!-- Phone cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading phones...</p>
+        </div>
+
+        <!-- Image Viewer Modal -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">&times;</button>
+                
+                <div class="modal-body">
+                    <div class="modal-image-section">
+                        <button class="nav-btn prev-btn" id="prevPhone">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        
+                        <div class="modal-image-container">
+                            <img id="modalImage" src="" alt="Phone Image">
+                            <div id="soldBadgeModal" class="sold-badge" style="display: none;">SOLD</div>
+                        </div>
+                        
+                        <button class="nav-btn next-btn" id="nextPhone">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-details">
+                        <div class="modal-header">
+                            <h2 id="modalTitle"></h2>
+                            <button id="modalWishlistBtn" class="wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-info">
+                            <div class="price-rating">
+                                <span id="modalPrice" class="price"></span>
+                                <div class="rating">
+                                    <div id="modalStars" class="stars"></div>
+                                    <span id="modalReviews" class="review-count"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="condition-date">
+                                <span id="modalCondition" class="condition"></span>
+                                <span id="modalDate" class="upload-date"></span>
+                            </div>
+                            
+                            <div class="features">
+                                <h4>Features:</h4>
+                                <ul id="modalFeatures"></ul>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-share">
+                            <h4>Share this phone:</h4>
+                            <div class="share-buttons">
+                                <button class="share-btn whatsapp" data-platform="whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
+                                <button class="share-btn facebook" data-platform="facebook">
+                                    <i class="fab fa-facebook"></i> Facebook
+                                </button>
+                                <button class="share-btn instagram" data-platform="instagram">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <p>We provide top-quality refurbished phones at the best prices. Your trusted platform for selling and buying old devices.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Sell Your Phone</a></li>
+        <li><a href="#">Buy Phones</a></li>
+        <li><a href="#">Warranty Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+     <div class="social-icons">
+  <a href="https://instagram.com" target="_blank"><i data-lucide="instagram"></i></a>
+  <a href="https://wa.me/8228884343" target="_blank"><i data-lucide="whatsapp"></i></a>
+  <a href="https://facebook.com" target="_blank"><i data-lucide="facebook"></i></a>
+</div>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>Jayashri Baug, Road No. 16/Z,<br>
+         Neheru Nagar, Wagle Industrial Estate,<br>
+         Thane West, Thane, Maharashtra<br>
+         Office Space<br>
+         📞 99932 41954
+      </p>
+    </div>
+    
+  </div>
+  
+  <div class="footer-bottom">
+    © 2025 Your Company Name. All rights reserved.
+  </div>
+</footer>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+    <script src="galler.js"></script>
+</body>
+</html>

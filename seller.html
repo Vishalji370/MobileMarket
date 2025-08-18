@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Mandi - Seller Dashboard</title>
+    <meta name="description" content="Professional seller dashboard for Phone Mandi marketplace">
+    <meta name="author" content="Phone Mandi">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="Phone Mandi - Seller Dashboard">
+    <meta property="og:description" content="Manage your phone listings, orders, and earnings on Phone Mandi">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f46e5'><path d='M3 5h18v14H3V5zm2 2v10h14V7H5z'/></svg>">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="seller.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">📱</div>
+                    <div class="logo-text">
+                        <div class="logo-title">Phone Mandi</div>
+                        <div class="logo-subtitle">Seller Dashboard</div>
+                    </div>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-label">Menu</div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#profile" class="nav-link active" data-section="profile">
+                            <i data-lucide="user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#add-product" class="nav-link" data-section="add-product">
+                            <i data-lucide="plus"></i>
+                            <span>Add Product</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#listings" class="nav-link" data-section="listings">
+                            <i data-lucide="package"></i>
+                            <span>My Listings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#orders" class="nav-link" data-section="orders">
+                            <i data-lucide="shopping-cart"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#earnings" class="nav-link" data-section="earnings">
+                            <i data-lucide="dollar-sign"></i>
+                            <span>Earnings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#analytics" class="nav-link" data-section="analytics">
+                            <i data-lucide="bar-chart-3"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#support" class="nav-link" data-section="support">
+                            <i data-lucide="help-circle"></i>
+                            <span>Support</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-stats">
+                <div class="stats-title">Quick Stats</div>
+                <div class="stat-item">
+                    <span>Active Listings:</span>
+                    <span class="stat-value">12</span>
+                </div>
+                <div class="stat-item">
+                    <span>Total Sales:</span>
+                    <span class="stat-value earnings">₹45,600</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h1 class="page-title" id="pageTitle">Profile</h1>
+                </div>
+                
+                <div class="header-center">
+                    <div class="search-container">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search products, orders..." class="search-input">
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <button class="notification-btn">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Rajesh Kumar</div>
+                            <div class="user-email">rajesh@example.com</div>
+                            <div class="verified-badge">✓ Verified Seller</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-area">
+                <!-- Profile Section -->
+                <section id="profile-section" class="content-section active">
+                    <div class="section-header">
+                        <h2><i data-lucide="user"></i> Seller Profile</h2>
+                    </div>
+                    
+                    <!-- Profile Card -->
+                    <div class="card profile-card">
+                        <div class="card-header">
+                            <div class="profile-info">
+                                <div class="profile-avatar">
+                                    <i data-lucide="user"></i>
+                                </div>
+                                <div class="profile-details">
+                                    <h3>Rajesh Kumar <span class="verified-badge">✓ Verified Seller</span></h3>
+                                    <div class="profile-meta">
+                                        <span><i data-lucide="star"></i> 4.8 (156 reviews)</span>
+                                        <span><i data-lucide="map-pin"></i> Mumbai, Maharashtra</span>
+                                    </div>
+                                    <p>Seller since January 2019</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline edit-profile-btn">
+                                <i data-lucide="edit"></i> Edit Profile
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <!-- Profile Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Profile Information</h3>
+                                <p>Update your personal information</p>
+                            </div>
+                            <div class="card-content">
+                                <form class="form-grid">
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" value="Rajesh Kumar" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input type="tel" value="+91 98765 43210" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email Address</label>
+                                        <input type="email" value="rajesh@example.com" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <input type="text" value="Mumbai, Maharashtra" readonly>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label>Bio</label>
+                                        <textarea rows="3" readonly>Experienced phone seller with 5+ years in the mobile market. Specializing in flagship and mid-range smartphones.</textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- KYC Documents -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>KYC Documents</h3>
+                                <p>Upload documents for verification</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="kyc-docs">
+                                    <div class="doc-item">
+                                        <div class="doc-icon"><i data-lucide="file-text"></i></div>
+                                        <div class="doc-info">
+                                            <div class="doc-name">Aadhaar Card</div>
+                                            <div class="doc-date">Uploaded: 2024-01-15</div>
+                                        </div>
+                                        <span class="badge badge-success">Verified</span>
+                                    </div>
+                                    <div class="doc-item">
+                                        <div class="doc-icon"><i data-lucide="file-text"></i></div>
+                                        <div class="doc-info">
+                                            <div class="doc-name">PAN Card</div>
+                                            <div class="doc-date">Uploaded: 2024-01-15</div>
+                                        </div>
+                                        <span class="badge badge-success">Verified</span>
+                                    </div>
+                                    <div class="doc-item">
+                                        <div class="doc-icon"><i data-lucide="file-text"></i></div>
+                                        <div class="doc-info">
+                                            <div class="doc-name">Shop License</div>
+                                            <div class="doc-date">Uploaded: 2024-01-20</div>
+                                        </div>
+                                        <span class="badge badge-warning">Pending</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline full-width">
+                                    <i data-lucide="upload"></i> Upload New Document
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Add Product Section -->
+                <section id="add-product-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i data-lucide="plus"></i> Add New Product</h2>
+                    </div>
+
+                    <form class="add-product-form">
+                        <!-- Basic Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Basic Information</h3>
+                                <p>Provide essential details about your phone</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Brand *</label>
+                                        <select required>
+                                            <option value="">Select brand</option>
+                                            <option value="apple">Apple</option>
+                                            <option value="samsung">Samsung</option>
+                                            <option value="oneplus">OnePlus</option>
+                                            <option value="xiaomi">Xiaomi</option>
+                                            <option value="oppo">Oppo</option>
+                                            <option value="vivo">Vivo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Model *</label>
+                                        <input type="text" placeholder="e.g., iPhone 15 Pro, Galaxy S24" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Storage *</label>
+                                        <select required>
+                                            <option value="">Select storage</option>
+                                            <option value="64GB">64GB</option>
+                                            <option value="128GB">128GB</option>
+                                            <option value="256GB">256GB</option>
+                                            <option value="512GB">512GB</option>
+                                            <option value="1TB">1TB</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>RAM *</label>
+                                        <select required>
+                                            <option value="">Select RAM</option>
+                                            <option value="4GB">4GB</option>
+                                            <option value="6GB">6GB</option>
+                                            <option value="8GB">8GB</option>
+                                            <option value="12GB">12GB</option>
+                                            <option value="16GB">16GB</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Year of Purchase *</label>
+                                        <select required>
+                                            <option value="">Select year</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Condition & Pricing -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Condition & Pricing</h3>
+                                <p>Describe condition and set your price</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="condition-grid">
+                                    <div class="condition-option">
+                                        <input type="radio" name="condition" value="new" id="new">
+                                        <label for="new">
+                                            <strong>New</strong>
+                                            <span>Brand new, unused</span>
+                                        </label>
+                                    </div>
+                                    <div class="condition-option">
+                                        <input type="radio" name="condition" value="like-new" id="like-new">
+                                        <label for="like-new">
+                                            <strong>Like New</strong>
+                                            <span>Minimal usage, no visible wear</span>
+                                        </label>
+                                    </div>
+                                    <div class="condition-option">
+                                        <input type="radio" name="condition" value="used" id="used">
+                                        <label for="used">
+                                            <strong>Used</strong>
+                                            <span>Normal usage, minor wear</span>
+                                        </label>
+                                    </div>
+                                    <div class="condition-option">
+                                        <input type="radio" name="condition" value="damaged" id="damaged">
+                                        <label for="damaged">
+                                            <strong>Damaged</strong>
+                                            <span>Functional but with visible damage</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Expected Price (₹) *</label>
+                                        <input type="number" placeholder="e.g., 45000" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="switch-label">
+                                            <input type="checkbox" class="switch">
+                                            <span>Price Negotiable</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i data-lucide="check"></i> Submit for Review
+                            </button>
+                            <button type="button" class="btn btn-outline">
+                                Save as Draft
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Listings Section -->
+                <section id="listings-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i data-lucide="package"></i> My Listings</h2>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Active Listings</div>
+                            <span class="badge badge-success">Live</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Pending Review</div>
+                            <span class="badge badge-warning">Review</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Sold This Month</div>
+                            <span class="badge badge-success">Sold</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1,289</div>
+                            <div class="stat-label">Total Views</div>
+                            <i data-lucide="eye"></i>
+                        </div>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="card filters-card">
+                        <div class="filters">
+                            <div class="search-container">
+                                <i data-lucide="search"></i>
+                                <input type="text" placeholder="Search by phone model..." id="listingsSearch">
+                            </div>
+                            <select id="statusFilter">
+                                <option value="all">All Statuses</option>
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="sold">Sold</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Listings Table -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>All Listings</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="listings-table" id="listingsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Condition</th>
+                                        <th>Status</th>
+                                        <th>Views</th>
+                                        <th>Inquiries</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listingsTableBody">
+                                    <!-- Dynamic content will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Orders Section -->
+                <section id="orders-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i data-lucide="shopping-cart"></i> Orders & Buyer Inquiries</h2>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">Total Inquiries</div>
+                            <i data-lucide="message-circle"></i>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Pending Response</div>
+                            <span class="badge badge-warning">Action Required</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Accepted Deals</div>
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                    </div>
+
+                    <!-- Orders Table -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Buyer Inquiries</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="orders-table" id="ordersTable">
+                                <thead>
+                                    <tr>
+                                        <th>Buyer</th>
+                                        <th>Product</th>
+                                        <th>Offer</th>
+                                        <th>Message</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableBody">
+                                    <!-- Dynamic content will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Earnings Section -->
+                <section id="earnings-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i data-lucide="dollar-sign"></i> Earnings & Wallet</h2>
+                    </div>
+
+                    <!-- Overview Cards -->
+                    <div class="earnings-grid">
+                        <div class="earning-card wallet-card">
+                            <div class="earning-header">
+                                <div class="earning-amount">₹28,400</div>
+                                <div class="earning-label">Wallet Balance</div>
+                            </div>
+                            <i data-lucide="wallet" class="earning-icon"></i>
+                            <button class="btn btn-success btn-sm">
+                                <i data-lucide="download"></i> Withdraw to Bank
+                            </button>
+                        </div>
+                        <div class="earning-card">
+                            <div class="earning-header">
+                                <div class="earning-amount">₹1,56,800</div>
+                                <div class="earning-label">Total Earnings</div>
+                            </div>
+                            <i data-lucide="trending-up" class="earning-icon"></i>
+                            <div class="earning-growth">
+                                <i data-lucide="arrow-up-right"></i>
+                                <span>+12.5% from last month</span>
+                            </div>
+                        </div>
+                        <div class="earning-card">
+                            <div class="earning-header">
+                                <div class="earning-amount">₹45,600</div>
+                                <div class="earning-label">This Month</div>
+                            </div>
+                            <i data-lucide="calendar" class="earning-icon"></i>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 91%"></div>
+                            </div>
+                            <div class="progress-text">Target: ₹50,000 (91%)</div>
+                        </div>
+                        <div class="earning-card">
+                            <div class="earning-header">
+                                <div class="earning-amount">8%</div>
+                                <div class="earning-label">Commission Rate</div>
+                            </div>
+                            <i data-lucide="percent" class="earning-icon"></i>
+                            <div class="commission-note">Applied on each sale</div>
+                        </div>
+                    </div>
+
+                    <!-- Transaction History -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Transaction History</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="transactions-table" id="transactionsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                        <th>Buyer</th>
+                                        <th>Amount</th>
+                                        <th>Commission</th>
+                                        <th>Net Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactionsTableBody">
+                                    <!-- Dynamic content will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i data-lucide="bar-chart-3"></i> Analytics & Insights</h2>
+                    </div>
+                    <div class="coming-soon">
+                        <i data-lucide="bar-chart-3"></i>
+                        <h3>Analytics Dashboard Coming Soon</h3>
+                        <p>Get detailed insights about your sales performance, customer behavior, and market trends.</p>
+                    </div>
+                </section>
+
+                <!-- Support Section -->
+                <section id="support-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i data-lucide="help-circle"></i> Support & Help</h2>
+                    </div>
+                    <div class="coming-soon">
+                        <i data-lucide="help-circle"></i>
+                        <h3>Support Center Coming Soon</h3>
+                        <p>Access FAQs, safety tips, marketplace policies, and contact our support team.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="seller.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellPhone - Sell Your Phone Fast & Secure | Trusted Marketplace</title>
+    <meta name="description" content="Sell your phone in minutes on the most trusted marketplace. Connect with verified buyers, get the best prices, and enjoy secure transactions. List your phone now!">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="sellerfinal.css">
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <!-- Header -->
+  <header class="header" id="autoBgHeader" style="height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+  <!-- Transparent Nav -->
+<nav class="main-nav">
+  <div class="nav-left">
+    <div class="logo">
+      <!-- Apna logo yahaan -->
+      <span>MO</span> <span class="brand-name">Mobsy</span>
+    </div>
+  </div>
+
+  <ul class="nav-links" >
+    <li><a href="index.html" class="home-link">Home</a></li>
+       <li data-filter="All">
+         <li><a href="index.html" class="home-link">All</a>
+          <ul class="submenu">
+            <li><a href="#">Mobiles</a></li>
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </li>
+  <li><a href="index.html" class="home-link">User</a>
+    <ul class="submenu">
+            <li><a href="index.html">Buyer</a></li>
+            <li><a href="sellerfinal.html">Seller</a></li>
+          </ul>
+        </li>
+   <li><a href="gallery.html" class="home-link">Gallery</a></li>
+  </ul>
+
+  <div class="nav-right">
+       <a href="#"><i class="icon-user"></i></a>
+    <a href="about.html" class="admin-login-link">
+    <i class="icon-user"></i> About Us
+</a>
+    <a href="#"><i class="icon-user"></i></a>
+    <a href="login.html" class="admin-login-link">
+    <i class="icon-user"></i> Admin
+</a>
+<a href="#"><i class="icon-cart"></i></a>
+
+
+  <a href="cart.html" class="cart-icon">
+  🛒
+  <span class="cart-count">0</span>
+</a>
+</div>
+</nav>
+
+
+  <!-- Center Content -->
+  <div style="text-align:center; color:white; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <h1 style="font-size:60px; font-weight:bold; margin-top: 110px; margin-bottom:-30px; color: aqua; ">Mobsy Smartphones</h1>
+    <h1 style="font-size:60px; font-weight:bold; margin-bottom:10px;">Sell & Buy Premium Phones</h1>
+    <p style="font-size:20px; max-width:600px;">Your trusted platform for selling and buying top-quality refurbished smartphones</p>
+    <div class="search-wrap" style="margin-top:20px; width:60%; max-width:600px; max-height: 60px; height: 40px;">
+      <div class="search" id="search">
+        <input id="searchInput" placeholder="Search products, brands and more..." />
+        <button id="searchBtn" title="Search">🔍</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <i data-lucide="smartphone"></i>
+                </div>
+                <div class="hero-text">
+                    <h1>Sell Your Phone</h1>
+                    <p>List your phone in minutes and connect with verified buyers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+            <div class="content-grid">
+                <!-- Form Area -->
+                <div class="form-area">
+                    <div class="form-card">
+                        <!-- Progress Indicator -->
+                        <div class="progress-indicator">
+                            <div class="step step-active" data-step="1">
+                                <div class="step-number">1</div>
+                                <span class="step-label">Phone Details</span>
+                            </div>
+                            <div class="step-line"></div>
+                            <div class="step step-inactive" data-step="2">
+                                <div class="step-number">2</div>
+                                <span class="step-label">Upload Images</span>
+                            </div>
+                            <div class="step-line"></div>
+                            <div class="step step-inactive" data-step="3">
+                                <div class="step-number">3</div>
+                                <span class="step-label">Set Price</span>
+                            </div>
+                            <div class="step-line"></div>
+                            <div class="step step-inactive" data-step="4">
+                                <div class="step-number">4</div>
+                                <span class="step-label">Contact Info</span>
+                            </div>
+                        </div>
+
+                        <!-- Form Steps -->
+                        <div class="form-steps">
+                            <!-- Step 1: Phone Details -->
+                            <div class="form-step active" id="step-1">
+                                <h2>Phone Details</h2>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="brand">Brand *</label>
+                                        <select id="brand" required>
+                                            <option value="">Select brand</option>
+                                            <option value="Apple">Apple</option>
+                                            <option value="Samsung">Samsung</option>
+                                            <option value="OnePlus">OnePlus</option>
+                                            <option value="Google">Google</option>
+                                            <option value="Xiaomi">Xiaomi</option>
+                                            <option value="Oppo">Oppo</option>
+                                            <option value="Vivo">Vivo</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="model">Model *</label>
+                                        <select id="model" required disabled>
+                                            <option value="">Select brand first</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="storage">Storage *</label>
+                                        <select id="storage" required>
+                                            <option value="">Select storage</option>
+                                            <option value="64GB">64GB</option>
+                                            <option value="128GB">128GB</option>
+                                            <option value="256GB">256GB</option>
+                                            <option value="512GB">512GB</option>
+                                            <option value="1TB">1TB</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="year">Year of Purchase *</label>
+                                        <select id="year" required>
+                                            <option value="">Select year</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2017">2017</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group full-width">
+                                        <label for="condition">Condition *</label>
+                                        <select id="condition" required>
+                                            <option value="">Select condition</option>
+                                            <option value="new">New (Unused)</option>
+                                            <option value="like-new">Like New (Minor wear)</option>
+                                            <option value="good">Good (Visible wear)</option>
+                                            <option value="fair">Fair (Heavy wear)</option>
+                                            <option value="broken">Broken (Damaged)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Upload Images -->
+                            <div class="form-step" id="step-2">
+                                <h2>Upload Images</h2>
+                                <p class="step-description">Add up to 6 photos to show your phone's condition</p>
+                                
+                                <div class="upload-zone" id="upload-zone">
+                                    <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                                    <div class="upload-content">
+                                        <div class="upload-icon">
+                                            <i data-lucide="upload"></i>
+                                        </div>
+                                        <div class="upload-text">
+                                            <p class="upload-title">Drop images here or click to browse</p>
+                                            <p class="upload-subtitle">PNG, JPG up to 10MB each</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="image-preview" id="image-preview" style="display: none;">
+                                    <h4 class="preview-title">Uploaded Images (<span id="image-count">0</span>/6)</h4>
+                                    <div class="image-grid" id="image-grid"></div>
+                                </div>
+
+                                <div class="tips-card">
+                                    <div class="tips-header">
+                                        <i data-lucide="camera"></i>
+                                        <h4>Photo Tips</h4>
+                                    </div>
+                                    <ul class="tips-list">
+                                        <li>• Include front, back, and sides of the phone</li>
+                                        <li>• Show any scratches or damage clearly</li>
+                                        <li>• Use good lighting for better visibility</li>
+                                        <li>• Include accessories if available</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Pricing -->
+                            <div class="form-step" id="step-3">
+                                <h2>Set Your Price</h2>
+                                
+                                <div class="form-group">
+                                    <label for="price">Expected Price *</label>
+                                    <div class="input-with-icon">
+                                        <i data-lucide="dollar-sign"></i>
+                                        <input type="number" id="price" placeholder="Enter your expected price" required>
+                                    </div>
+                                </div>
+
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="negotiable">
+                                    <label for="negotiable">Price is negotiable</label>
+                                </div>
+
+                                <div class="tips-card">
+                                    <div class="tips-header">
+                                        <i data-lucide="trending-up"></i>
+                                        <h4>Pricing Tips</h4>
+                                    </div>
+                                    <ul class="tips-list">
+                                        <li>• Research similar phones on marketplace</li>
+                                        <li>• Consider your phone's condition honestly</li>
+                                        <li>• Competitive pricing leads to faster sales</li>
+                                        <li>• Allow room for negotiation if needed</li>
+                                    </ul>
+                                </div>
+
+                                <div class="price-guide">
+                                    <h4>Estimated Market Range</h4>
+                                    <div class="price-range">
+                                        <div class="price-item">
+                                            <div class="price-value price-fair">$450</div>
+                                            <div class="price-label">Fair</div>
+                                        </div>
+                                        <div class="price-item">
+                                            <div class="price-value price-good">$550</div>
+                                            <div class="price-label">Good</div>
+                                        </div>
+                                        <div class="price-item">
+                                            <div class="price-value price-excellent">$650</div>
+                                            <div class="price-label">Excellent</div>
+                                        </div>
+                                    </div>
+                                    <p class="price-note">Based on similar listings in your area</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Contact -->
+                            <div class="form-step" id="step-4">
+                                <h2>Contact Details</h2>
+                                
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="name">Full Name *</label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="user"></i>
+                                            <input type="text" id="name" placeholder="Enter your full name" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="phone"></i>
+                                            <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="mail"></i>
+                                            <input type="email" id="email" placeholder="your.email@example.com" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="city">City/Location *</label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="map-pin"></i>
+                                            <input type="text" id="city" placeholder="Enter your city" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="privacy-settings">
+                                    <div class="privacy-item">
+                                        <div class="privacy-info">
+                                            <i data-lucide="shield"></i>
+                                            <div>
+                                                <label for="hide-phone">Hide phone number from public listing</label>
+                                                <p>Buyers will contact via chat initially</p>
+                                            </div>
+                                        </div>
+                                        <div class="switch">
+                                            <input type="checkbox" id="hide-phone">
+                                            <span class="slider"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tips-card">
+                                    <div class="tips-header">
+                                        <i data-lucide="shield"></i>
+                                        <h4>Become a Verified Seller</h4>
+                                    </div>
+                                    <p>Verified sellers get 3x more responses and sell 40% faster</p>
+                                    <ul class="tips-list">
+                                        <li>• Phone number verification</li>
+                                        <li>• Email verification</li>
+                                        <li>• Identity verification</li>
+                                        <li>• Trusted seller badge</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="form-navigation">
+                            <button class="btn btn-outline" id="prev-btn" disabled>
+                                <i data-lucide="chevron-left"></i>
+                                Previous
+                            </button>
+                            <button class="btn btn-primary" id="next-btn" disabled>
+                                Next
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Tips Card -->
+                    <div class="tips-card">
+                        <div class="tips-header">
+                            <i data-lucide="lightbulb"></i>
+                            <h3>Selling Tips</h3>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i data-lucide="camera"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h4>Upload Clear Photos</h4>
+                                <p>High-quality images increase buyer interest by 70%</p>
+                            </div>
+                        </div>
+
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i data-lucide="dollar-sign"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h4>Price Competitively</h4>
+                                <p>Research similar listings to set the right price</p>
+                            </div>
+                        </div>
+
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i data-lucide="lightbulb"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h4>Give Accurate Details</h4>
+                                <p>Honest descriptions build trust with buyers</p>
+                            </div>
+                        </div>
+
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i data-lucide="clock"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h4>Respond Quickly</h4>
+                                <p>Fast responses lead to quicker sales</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badge -->
+                    <div class="trust-card">
+                        <div class="trust-header">
+                            <i data-lucide="shield"></i>
+                            <h3>Trusted Platform</h3>
+                        </div>
+                        <p>Join thousands of verified sellers on our secure marketplace</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">50K+</div>
+                                <div class="stat-label">Phones Sold</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Satisfied</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24hr</div>
+                                <div class="stat-label">Avg. Sale</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+        
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">
+                    <i data-lucide="check-circle"></i>
+                </div>
+                <h2>Phone Listed Successfully!</h2>
+            </div>
+            
+            <div class="modal-body">
+                <p>Your phone listing is now live and visible to thousands of potential buyers.</p>
+                
+                <div class="success-stats">
+                    <div class="success-stat">
+                        <i data-lucide="eye"></i>
+                        <div>
+                            <div class="stat-title">Live Now</div>
+                            <div class="stat-desc">Visible to buyers</div>
+                        </div>
+                    </div>
+                    <div class="success-stat">
+                        <i data-lucide="message-circle"></i>
+                        <div>
+                            <div class="stat-title">Chat Ready</div>
+                            <div class="stat-desc">Messages enabled</div>
+                        </div>
+                    </div>
+                    <div class="success-stat">
+                        <i data-lucide="share-2"></i>
+                        <div>
+                            <div class="stat-title">Shareable</div>
+                            <div class="stat-desc">Social ready</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-steps">
+                    <h4>What happens next?</h4>
+                    <ul>
+                        <li>• Buyers can view your listing immediately</li>
+                        <li>• You'll receive notifications for inquiries</li>
+                        <li>• Respond quickly to increase sale chances</li>
+                    </ul>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn btn-primary">View My Listing</button>
+                    <button class="btn btn-outline">
+                        <i data-lucide="share-2"></i>
+                        Share Listing
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <p>We provide top-quality refurbished phones at the best prices. Your trusted platform for selling and buying old devices.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Sell Your Phone</a></li>
+        <li><a href="#">Buy Phones</a></li>
+        <li><a href="#">Warranty Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+     <div class="social-icons">
+  <a href="https://instagram.com" target="_blank"><i data-lucide="instagram"></i></a>
+  <a href="https://wa.me/8228884343" target="_blank"><i data-lucide="whatsapp"></i></a>
+  <a href="https://facebook.com" target="_blank"><i data-lucide="facebook"></i></a>
+</div>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>Jayashri Baug, Road No. 16/Z,<br>
+         Neheru Nagar, Wagle Industrial Estate,<br>
+         Thane West, Thane, Maharashtra<br>
+         Office Space<br>
+         📞 99932 41954
+      </p>
+    </div>
+    
+  </div>
+  
+  <div class="footer-bottom">
+    © 2025 Your Company Name. All rights reserved.
+  </div>
+</footer>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+    <!-- Scripts -->
+    <script src="sellerfinal.js"></script>
+</body>
+</html>

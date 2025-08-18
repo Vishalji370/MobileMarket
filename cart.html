@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneBazar - Premium Smartphones & Shopping Cart</title>
+    <meta name="description" content="Shop the latest smartphones from Apple, Samsung, OnePlus and more. Best prices, fast delivery, secure checkout. Add to cart and get your dream phone today!">
+    <meta name="keywords" content="smartphones, mobile phones, iPhone, Samsung Galaxy, OnePlus, online shopping, electronics">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mobsy - Premium Smartphones & Accessories">
+    <meta property="og:description" content="Shop the latest smartphones with best prices and fast delivery. Secure online shopping for mobile phones and accessories.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='20' font-size='20'>📱</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <!-- Logo -->
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">PB</div>
+                    <span class="logo-text">PhoneBazar</span>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav desktop-only">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Brands</a>
+                <a href="#" class="nav-link">Deals</a>
+                <a href="about.html" class="nav-link">Support</a>
+            </nav>
+
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" placeholder="Search phones..." class="search-input">
+                </div>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="header-right">
+                <button class="header-btn desktop-only">
+                    <i data-lucide="user"></i>
+                </button>
+                <button class="header-btn cart-btn" id="cartBtn">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Cart Page -->
+        <div id="cartPage" class="page">
+            <div class="container">
+                <!-- Cart Header -->
+                <div class="cart-header">
+                    <h1 class="page-title">Shopping Cart</h1>
+                    <p class="cart-subtitle" id="cartSubtitle">0 items in your cart</p>
+                </div>
+
+                <!-- Cart Content -->
+                <div id="cartContent">
+                    <!-- Empty Cart -->
+                    <div id="emptyCart" class="empty-cart">
+                        <div class="empty-cart-icon">
+                            <i data-lucide="shopping-cart"></i>
+                        </div>
+                        <h2 class="empty-cart-title">Your cart is empty</h2>
+                        <p class="empty-cart-description">
+                            Your cart is empty. Browse our latest smartphones and find the perfect device for you!
+                        </p>
+                        <button class="btn btn-primary" id="continueShopping">
+                            <i data-lucide="arrow-left"></i>
+                            Continue Shopping
+                        </button>
+
+                        <!-- Popular Categories -->
+                        <div class="popular-categories">
+                            <h3 class="categories-title">Popular Categories</h3>
+                            <div class="categories-grid">
+                                <button class="category-btn">iPhone</button>
+                                <button class="category-btn">Samsung</button>
+                                <button class="category-btn">OnePlus</button>
+                                <button class="category-btn">Accessories</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Items -->
+                    <div id="cartItems" class="cart-layout">
+                        <div class="cart-items-section">
+                            <div id="cartItemsList">
+                                <!-- Cart items will be rendered here -->
+                            </div>
+                        </div>
+
+                        <!-- Cart Summary -->
+                        <div class="cart-summary-section">
+                            <div class="cart-summary" id="cartSummary">
+                                <!-- Cart summary will be rendered here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Cart Notification -->
+    <div id="floatingCart" class="floating-cart">
+        <div class="floating-cart-content">
+            <div class="floating-cart-success">
+                <div class="success-icon">
+                    <i data-lucide="check"></i>
+                </div>
+            </div>
+            
+            <div class="floating-cart-info">
+                <p class="floating-cart-title">Added to cart!</p>
+                <div class="floating-cart-item">
+                    <img id="floatingCartImage" src="" alt="" class="floating-cart-img">
+                    <div class="floating-cart-details">
+                        <p class="floating-cart-name" id="floatingCartName"></p>
+                        <p class="floating-cart-price" id="floatingCartPrice"></p>
+                    </div>
+                </div>
+                
+                <div class="floating-cart-actions">
+                    <button class="btn btn-outline btn-sm" id="floatingViewCart">
+                        <i data-lucide="shopping-cart"></i>
+                        View Cart
+                    </button>
+                    <button class="btn btn-ghost btn-sm" id="floatingContinue">
+                        Continue
+                    </button>
+                </div>
+            </div>
+            
+            <button class="floating-cart-close" id="floatingCartClose">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <div class="toast-icon">
+                <i data-lucide="check-circle"></i>
+            </div>
+            <div class="toast-text">
+                <div class="toast-title" id="toastTitle"></div>
+                <div class="toast-description" id="toastDescription"></div>
+            </div>
+        </div>
+    </div>
+
+  <div id="checkoutModal" class="modal">
+  <div class="modal-content">
+    <span id="modalClose" class="close">&times;</span>
+    
+    <h2 class="modal-title">Checkout</h2>
+    <form id="checkoutForm" class="checkout-form">
+      <div class="form-grid">
+        
+        <!-- Customer Info -->
+        <div class="form-section">
+          <label>
+            <span><i class="fas fa-user"></i> Full Name</span>
+            <input type="text" name="name" placeholder="Enter your name" required>
+          </label>
+
+          <label>
+            <span><i class="fas fa-phone"></i> Phone Number</span>
+            <input type="tel" name="phone" placeholder="Enter phone number" required>
+          </label>
+
+          <label>
+            <span><i class="fas fa-map-marker-alt"></i> Address</span>
+            <textarea name="address" rows="3" placeholder="Enter your full address" required></textarea>
+          </label>
+
+          <label>
+            <span><i class="fas fa-sticky-note"></i> Notes</span>
+            <textarea name="notes" rows="2" placeholder="Additional instructions"></textarea>
+          </label>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="form-section">
+          <label>
+            <span><i class="fas fa-calendar"></i> Date</span>
+            <input type="text" id="checkoutDate" name="date" readonly>
+          </label>
+
+          <label>
+            <span><i class="fas fa-shopping-cart"></i> Cart Items</span>
+            <textarea id="checkoutCartItems" name="cartItems" rows="6" readonly></textarea>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        <i class="fas fa-paper-plane"></i> Place Order
+      </button>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-about">
+            <h3>PhoneBazar</h3>
+            <p>Your one-stop shop for the latest smartphones at unbeatable prices.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Phones</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>Jayashri Baug, Road No. 16/Z,<br>
+         Neheru Nagar, Wagle Industrial Estate,<br>
+         Thane West, Thane, Maharashtra<br>
+         Office Space<br>
+         📞 99932 41954
+      </p>
+
+        </div>
+        
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 MobileStore. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+    <script src="cart.js"></script>
+
+
+</body>
+</html>
