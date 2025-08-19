@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Admin Panel - Google Sheets Integration</title>
+    <meta name="description" content="Modern, responsive admin panel for managing products with Google Sheets integration. Add, view, and manage your product inventory seamlessly.">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+   <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-brand">
+                    <div class="brand-icon">
+                        <i data-lucide="database" class="icon"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Product Admin</h1>
+                        <p>Google Sheets Integration</p>
+                    </div>
+                </div>
+                <div class="header-status">
+    <button id="logoutBtn" class="btn btn-secondary">
+        
+        Logout
+    </button>
+</div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h2 class="welcome-title">Product Management Dashboard</h2>
+                <p class="welcome-description">
+                    Add new products to your Google Sheet and view existing inventory in a beautiful, responsive interface.
+                </p>
+            </div>
+
+            <!-- Product Form -->
+            <section>
+                <div class="card card-gradient">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i data-lucide="plus" class="icon"></i>
+                            Add New Product
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <form id="productForm" class="form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="title" class="label">Product Title *</label>
+                                    <input type="text" id="title" name="title" class="input" placeholder="Enter product title" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="brand" class="label">Brand *</label>
+                                    <input type="text" id="brand" name="brand" class="input" placeholder="Enter brand name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="price" class="label">Price ($) *</label>
+                                    <input type="number" id="price" name="price" class="input" placeholder="0.00" step="0.01" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="old_price" class="label">Old Price ($)</label>
+                                    <input type="number" id="old_price" name="old_price" class="input" placeholder="0.00" step="0.01">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="discount" class="label">Discount (%)</label>
+                                    <input type="number" id="discount" name="discount" class="input" placeholder="0">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="rating" class="label">Rating (0-5)</label>
+                                    <input type="number" id="rating" name="rating" class="input" placeholder="4.5" step="0.1" min="0" max="5">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reviews" class="label">Number of Reviews</label>
+                                    <input type="number" id="reviews" name="reviews" class="input" placeholder="0">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="warranty" class="label">Warranty</label>
+                                    <input type="text" id="warranty" name="warranty" class="input" placeholder="1 year warranty">
+                                </div>
+                            </div>
+
+                            <div class="form-group form-group-full">
+                                <label for="image_urls" class="label">
+                                    <i data-lucide="image" class="icon"></i>
+                                    Image URLs (comma-separated)
+                                </label>
+                                <textarea id="image_urls" name="image_urls" class="textarea" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"></textarea>
+                            </div>
+
+                            <div class="form-group form-group-full">
+                                <label for="description" class="label">Description *</label>
+                                <textarea id="description" name="description" class="textarea textarea-large" placeholder="Enter product description" required></textarea>
+                            </div>
+
+                            <div class="form-group form-group-full">
+                                <label for="features" class="label">Features (comma-separated)</label>
+                                <textarea id="features" name="features" class="textarea" placeholder="Feature 1, Feature 2, Feature 3"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                                <i data-lucide="plus" class="icon"></i>
+                                Add Product to Sheet
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section class="products-section">
+                <div class="card card-gradient">
+                    <div class="card-header">
+                        <div class="products-header">
+                            <div class="products-title">
+                                <i data-lucide="package" class="icon-lg"></i>
+                                <h3 class="card-title">Products in Sheet</h3>
+                                <span class="badge" id="productCount">0 items</span>
+                            </div>
+                            <button class="btn btn-secondary" id="refreshBtn">
+                                <i data-lucide="refresh-cw" class="icon"></i>
+                                Refresh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="productsContainer">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading products from sheet...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-status">
+                    <i data-lucide="settings" class="icon"></i>
+                    <span>Connected to Google Sheets</span>
+                </div>
+                <p>Highsecure Admin Panel</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
