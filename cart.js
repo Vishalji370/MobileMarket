@@ -607,7 +607,7 @@ document.addEventListener("click", function(e) {
       return;
     }
 
-    const phoneNumber = "918228884343"; // apna number
+    const phoneNumber = "919993241954"; 
 
     // Cart items summary
     let message = " New Order via WhatsApp:%0A%0A";
@@ -633,5 +633,6 @@ document.addEventListener("click", function(e) {
 
 window.app = app;
 app.init();
+
 
 
